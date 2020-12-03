@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Iterator, Match, AnyStr
 import re
 
 
@@ -15,12 +15,12 @@ class PasswordWithPolicy:
         self.password = password
 
 
-def solve():
+def solve() -> None:
     passwords: List[PasswordWithPolicy] = []
     regex: str = r"^([0-9]+)-([0-9]+) (.*?): (.*)$"
 
     with open("Input/Door_02.txt", 'r') as content:
-        matches = re.finditer(regex, content.read(), re.MULTILINE)
+        matches: Iterator[Match[AnyStr]] = re.finditer(regex, content.read(), re.MULTILINE)
 
         for matchNum, match in enumerate(matches, start=1):
             passwords.append(PasswordWithPolicy(int(match.group(1)), int(match.group(2)), match.group(3), match.group(4)))
@@ -29,7 +29,7 @@ def solve():
     second(passwords)
 
 
-def first(passwords: List[PasswordWithPolicy]):
+def first(passwords: List[PasswordWithPolicy]) -> None:
     accepted: int = 0
 
     for entry in passwords:
@@ -40,7 +40,7 @@ def first(passwords: List[PasswordWithPolicy]):
     print("Door  2.1 | {0} passwords accepted".format(accepted))
 
 
-def second(passwords: List[PasswordWithPolicy]):
+def second(passwords: List[PasswordWithPolicy]) -> None:
     accepted: int = 0
 
     for entry in passwords:

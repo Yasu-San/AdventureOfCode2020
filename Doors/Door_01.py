@@ -1,7 +1,7 @@
 from typing import List
 
 
-def solve():
+def solve() -> None:
     numbers: List[int] = []
 
     with open("Input/Door_01.txt", 'r') as infile:
@@ -12,7 +12,7 @@ def solve():
     second(numbers)
 
 
-def first(numbers: List[int]):
+def first(numbers: List[int]) -> None:
     for num in numbers:
         for num2 in numbers:
             if num + num2 == 2020:
@@ -20,7 +20,7 @@ def first(numbers: List[int]):
                 return
 
 
-def second(numbers: List[int]):
+def second(numbers: List[int]) -> None:
     for num in numbers:
         for num2 in numbers:
             for num3 in numbers:
