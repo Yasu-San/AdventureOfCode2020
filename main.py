@@ -1,4 +1,4 @@
-from Doors import Door_01, Door_02, Door_03, Door_04, Door_05
+from Doors import Door_01, Door_02, Door_03, Door_04, Door_05, Door_06
 
 if __name__ == '__main__':
     Door_01.solve()
@@ -6,3 +6,4 @@ if __name__ == '__main__':
     Door_03.solve()
     Door_04.solve()
     Door_05.solve()
+    Door_06.solve()
